@@ -1,4 +1,4 @@
-# Layouts 2018
+# Layouts || UX 2018
 
 A personal collection of projects, demos and online course work revisiting layout fundamentals and best practices in 2018 with the goal of exploring the latest techniques and testing strategies to ensure that designs are:
 
@@ -7,15 +7,15 @@ A personal collection of projects, demos and online course work revisiting layou
 * Inclusive
 * Beautiful
 
-Web layout is generally concered with how components align and flow in the context of the page and viewport. But components themselves are often containers of other components, aware only of their own parent containers. Because of this fractal nature, it's never a good idea to design layouts in an invory tower or in isolation of other UI concerns. It sounds attractive to just start drawing wireframes and making shiny mockups from a purely aesthetic point of view. However, this leads to box thinking as well as a lot of repeated effort, miscommunication, and mismanagement of expectations between stakeholders.
+Web layout is generally concered with how components align and flow in the context of the page and viewport. But components themselves are often containers of other components, aware only of their own parent containers. Because of this fractal nature, it's never a good idea to design layouts in isolation of other UI concerns. It wireframe or mockup first approach is attractive, addressing the needs of the app from a purely aesthetic point of view. However, this leads to box thinking as well as a lot of repeated effort, miscommunication, and mismanagement of expectations between stakeholders.
 
-Design the application, not a screenshot of the application. On the other end of the spectrum, if you design a full-scale component library from the bottom-up without any concept for the bigger picture, you'll end up designing a component library, not an application.
+Design the application, not a screenshot of the application. On the other end of the spectrum, designing a full-scale component or pattern library from the bottom-up without a clear direction for the app as a whole is a good way to do a lot of extra work without getting much closer to the stated goal of creating an app.
 
-Layout is a good starting place for design, but it needs to be rooted in a few good principles. From the outset, a good design should address the functional needs of both the end-user and the codebase user. It should envision a multifaceted interface that's a joy to work with and a joy to use. Disorganized and inflexible systems are a joy only to discard.
+Layout is a good starting place for UI design; it gives us neat slots to fill in. But it needs to be rooted in a few good principles. From the outset, a good design should address the functional needs of both the end-user and the codebase user. It should envision a multifaceted interface that's a joy to work with and a joy to use. Disorganized and inflexible systems are only a joy to discard.
 
-Consideration for a wide range of users and devices, for naming and conventions, codebase maintainability, and aesthetic beauty should all be undertaken with the first round of laying out the application. Ideally, this undertaking produces a working prototype, a real, interactive static application (perhaps with basic routing) that is also a shell for further development, not a throwaway item used merely to win approvals from managers and consume storage space in clients' untended Downloads folder. They should be readable, flexible, modular, well-tested, well-documented, and ready to hand off and plug in to other systems for enhanced functionality.
+Consideration for a wide range of users and devices, for naming and categorical conventions, codebase maintainability, and aesthetic beauty should all be undertaken with the first round of laying out the application. Ideally, this undertaking produces a working prototype, a real, interactive static application (perhaps with basic routing) like a shell or foundation for further development, not a bait-and-switch for signoff. First round deliverables should be readable, flexible, modular, well-tested, well-documented, and ready to hand off and plug in to other systems for enhanced functionality.
 
-Starting with a pre-written component library like Bootstrap may address some of these concerns. They are great for projects where branding will never be a priority. However, if you go this route, there's a good chance that at some point during the application's lifespan, more time will be spent customizing the library than if you had built it from scratch. More likely, though, you'll lean on this to bypass the design process entirely, failing to ask some of the most important existential questions about your app at a crucial moment, putting these off to a later date when the inclination is to either scrap it or rebuild it from scratch.
+Starting with a pre-written component library like Bootstrap may address some of these concerns. These tools are great for projects where branding will never be a priority. However, when choosing this route, there's a good chance that at some point during the application's lifespan, more time will have been spent customizing the library than if it had been built from scratch. More likely, though, leaning on this tool will lead to bypassing the design process entirely, failing to ask some of the most important existential questions about app at a crucial stage of inception, putting these off to a later date when the inclination is to either scrap it or rebuild from scratch.
 
 ## Notes
 
@@ -77,15 +77,23 @@ See also: [WebAIM](https://webaim.org/)
 
 ### CSS Maintainability
 
+#### SMACSS
+
+SMACSS is a simple approach to structuring modular CSS. It establishes a convention for ordering CSS classes by specificity, dividing them into 5 categories:
+
+1.  **Base Rules**: Element selector rules and resets that apply as always-ok defaults.
+2.  **Layout Rules**: Rules specific to the alignment and flow of 'major' components, such as header, main, and footer, distinct from that of 'minor' components.
+3.  **Module Rules**: Rules for 'minor' components or the components that are nested in the 'major' components, such as navigation bars, carousels, dialogs, widgets, etc.
+4.  **State Rules**:
+5.  **Theme Rules**:
+
+Source: [SMACSS site](https://smacss.com/)
+
 #### BEM
 
 [GetBEM.com](http://getbem.com/introduction/)
 
 [ABEM. A more useful adaptation of BEM.](https://css-tricks.com/abem-useful-adaptation-bem/)
-
-#### SMACSS
-
-[SMACSS site](https://smacss.com/)
 
 #### Component-scoped CSS
 
