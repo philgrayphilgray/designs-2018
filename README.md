@@ -105,7 +105,12 @@ Source: [SMACSS site](https://smacss.com/)
 
 #### Style Guides
 
+[Website Style Guide Resources](http://styleguides.io/)
+
 ### Inclusive
+
+* [Inclusive Web Design Checklist
+  ](https://github.com/Heydon/inclusive-design-checklist)
 
 #### Responsive
 
@@ -126,6 +131,13 @@ Source: [SMACSS site](https://smacss.com/)
 #### Layout
 
 #### Typography
+
+* [Professional
+  Web Typography](https://prowebtype.com/)
+* [Everything I know about Responsive Web Typography](https://zellwk.com/blog/responsive-typography/)
+* [The Elements
+  of Typographic Style
+  Applied to the Web](http://webtypography.net/)
 
 #### Animation
 
