@@ -1,17 +1,17 @@
-# Layouts || UX 2018
+# UX/UI Designs 2018
 
-A personal collection of projects, demos and online course work revisiting layout fundamentals and best practices in 2018 with the goal of exploring the latest techniques and testing strategies to ensure that designs are:
+A personal collection of projects, demos and online course work revisiting UX/UI with the goal of exploring the latest techniques and testing strategies to ensure that designs are:
 
 * Accessible
 * Maintainable
 * Inclusive
 * Beautiful
 
-Web layout is generally concered with how components align and flow in the context of the page and viewport. But components themselves are often containers of other components, aware only of their own parent containers. Because of this fractal nature, it's never a good idea to design layouts in isolation of other UI concerns. It wireframe or mockup first approach is attractive, addressing the needs of the app from a purely aesthetic point of view. However, this leads to box thinking as well as a lot of repeated effort, miscommunication, and mismanagement of expectations between stakeholders.
+Web layout is generally concered with how components align and flow in the context of the page and viewport. But components themselves are often containers of other components, aware only of their own parent containers. Because of this fractal nature, it's never a good idea to design layouts in isolation of other UI concerns. A wireframe or mockup first approach is attractive, addressing the needs of the app from a purely aesthetic point of view. However, this leads to box thinking as well as a lot of repeated effort, miscommunication, and mismanagement of expectations between stakeholders.
 
 Design the application, not a screenshot of the application. On the other end of the spectrum, designing a full-scale component or pattern library from the bottom-up without a clear direction for the app as a whole is a good way to do a lot of extra work without getting much closer to the stated goal of creating an app.
 
-Layout is a good starting place for UI design; it gives us neat slots to fill in. But it needs to be rooted in a few good principles. From the outset, a good design should address the functional needs of both the end-user and the codebase user. It should envision a multifaceted interface that's a joy to work with and a joy to use. Disorganized and inflexible systems are only a joy to discard.
+Layout is a good starting place for design; it gives us neat slots to fill in. But it needs to be rooted in a few good principles. From the outset, a good design should address the functional needs of both the end-user and the codebase user. It should envision a multifaceted interface that's a joy to work with and a joy to use. Disorganized and inflexible systems are only a joy to discard.
 
 Consideration for a wide range of users and devices, for naming and categorical conventions, codebase maintainability, and aesthetic beauty should all be undertaken with the first round of laying out the application. Ideally, this undertaking produces a working prototype, a real, interactive static application (perhaps with basic routing) like a shell or foundation for further development, not a bait-and-switch for signoff. First round deliverables should be readable, flexible, modular, well-tested, well-documented, and ready to hand off and plug in to other systems for enhanced functionality.
 
