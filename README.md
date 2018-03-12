@@ -97,9 +97,13 @@ Source: [SMACSS site](https://smacss.com/)
 
 #### Component-scoped CSS
 
+[React Styled Components](https://www.styled-components.com/)
+
 [react-css-modules](https://github.com/gajus/react-css-modules)
 
 [VUE Scoped CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
+
+#### Style Guides
 
 ### Inclusive
 
@@ -112,3 +116,17 @@ Source: [SMACSS site](https://smacss.com/)
 #### Internationalization
 
 ### Beautiful
+
+#### Content Strategy
+
+#### Vector Graphic Design
+
+#### Data Visualization
+
+#### Layout
+
+#### Typography
+
+#### Animation
+
+#### Color
