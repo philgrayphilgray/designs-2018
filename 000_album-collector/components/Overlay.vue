@@ -7,11 +7,7 @@
 <script>
 export default {
   props: ['toggle']
-  // methods: {
-  //   focusMyElement(e) {
-  //     this.$refs.focusThis.focus();
-  //   }
-  // }
+  // TODO: tabtrapping
 };
 </script>
 <style lang="scss">
@@ -28,7 +24,9 @@ export default {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+.overlay-content > * {
+  padding-top: 10em;
 }
 .menu-button-close {
   background: white;

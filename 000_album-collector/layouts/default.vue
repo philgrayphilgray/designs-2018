@@ -36,10 +36,6 @@ html {
   padding: 1em;
 }
 
-.container > * {
-  margin: 1em auto;
-}
-
 .button--green {
   display: inline-block;
   border-radius: 4px;

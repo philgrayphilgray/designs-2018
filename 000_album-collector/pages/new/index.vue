@@ -1,10 +1,12 @@
 <template lang="pug">
-  div 
+  div.new-form
     h1 Add New Album
+    div.art-preview(v-if="newAlbum.art")
+      img(:src='newAlbum.art')
     form(@submit.prevent="submitHandler")
       strong.line-through Album Details
-      FormInput(v-for="key in Object.keys(newAlbum)" :inputName="key" :key="key")
-      button(type="submit") save
+      FormInput(v-for="(inputElement, index) in Object.keys(newAlbum)"  :inputName="inputElement" :key="inputElement" @change="inputHandler")
+      button.button-submit(type="submit") save
 </template>
 
 
@@ -19,13 +21,16 @@ export default {
       newAlbum: {
         title: '',
         artist: '',
-        art: '',
+        art: 'http://via.placeholder.com/300x300', // use prop validation to set default?
         year: '',
         rating: ''
       }
     };
   },
   methods: {
+    inputHandler: function({ input, inputValue }) {
+      this.newAlbum[input] = inputValue;
+    },
     submitHandler(e) {
       this.$store.commit('add', this.newAlbum);
       e.target.reset();
@@ -35,6 +40,15 @@ export default {
 };
 </script>
 <style>
+.new-form {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.art-preview {
+  margin: 0 auto;
+}
 .line-through {
   display: block;
   position: relative;
@@ -61,5 +75,11 @@ export default {
   top: 49%;
   width: 100%;
   z-index: -2;
+}
+
+.button-submit {
+  width: 100%;
+  padding: 1em 0.25em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 </style>
