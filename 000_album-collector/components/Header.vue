@@ -3,8 +3,8 @@ div(@keyup.esc="toggleOverlay")
     Overlay(v-if="$store.state.navToggled" :toggle="toggleOverlay")
       div(slot="navigation")
         Navigation
-    header
-        button.menu-button(@click="toggleOverlay" type="button" aria-label="Toggle navigation" :aria-expanded="$store.state.navToggled")
+    header(role="banner")
+        button.menu-button(@click="toggleOverlay" type="button" aria-label="Toggle navigation on" :aria-expanded="$store.state.navToggled")
           span.icon-bar
           span.icon-bar
           span.icon-bar

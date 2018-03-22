@@ -1,7 +1,10 @@
 <template>
   <div>
+    <a class="skip-link sr-only" href="#main-content">Skip to the main content</a>
     <Header/>
-    <nuxt class="container"/>
+    <main id="main-content">
+      <nuxt class="container"/>
+    </main>
   </div>
 </template>
 <script>
