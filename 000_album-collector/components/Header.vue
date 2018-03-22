@@ -10,7 +10,7 @@ div(@keyup.esc="toggleOverlay")
           span.icon-bar
         .logo
           nuxt-link(to="/")
-            img(src="~/assets/svg/logo.svg")
+            img(src="~/assets/svg/logo.svg" alt="Album Collector")
 
 </template>
 

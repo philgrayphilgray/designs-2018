@@ -1,7 +1,7 @@
 <template lang="pug">
 .navigation
   .branding
-    img(src="~/assets/svg/logo-menu.svg")   
+    img(src="~/assets/svg/logo-menu.svg" alt="Album Collector")   
   nav(role="navigation")
       ul
           li

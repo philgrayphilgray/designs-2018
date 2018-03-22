@@ -1,6 +1,6 @@
 <template lang="pug">
   .Card
-    img(:src="album.art")
+    img(:src="album.art" :alt="'Album artwork for ' + album.title + ' by ' + album.artist")
     .card-details
       p {{album.title}}
       p {{album.artist}}
