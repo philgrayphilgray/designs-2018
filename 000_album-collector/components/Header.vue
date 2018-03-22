@@ -4,7 +4,7 @@ div(@keyup.esc="toggleOverlay")
       div(slot="navigation")
         Navigation
     header
-        button.menu-button(@click="toggleOverlay")
+        button.menu-button(@click="toggleOverlay" type="button" aria-label="Toggle navigation" :aria-expanded="$store.state.navToggled")
           span.icon-bar
           span.icon-bar
           span.icon-bar

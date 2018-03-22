@@ -6,7 +6,7 @@
     form(@submit.prevent="submitHandler")
       strong.line-through Album Details
       FormInput(v-for="(inputElement, index) in Object.keys(newAlbum)"  :inputName="inputElement" :key="inputElement" @change="inputHandler")
-      button.button-submit(type="submit") save
+      button.button-submit(type="submit" role="button" aria-labelledby="Submit a new album") save
 </template>
 
 

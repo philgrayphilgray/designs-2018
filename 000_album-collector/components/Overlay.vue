@@ -1,6 +1,6 @@
 <template lang="pug">
   .overlay(@click="toggle" role="dialog")
-    img.menu-button-close(src="~/assets/svg/cross.svg" alt="Close menu")
+    img.menu-button-close(src="~/assets/svg/cross.svg" role="button" alt="Close menu" aria-label="Toggle navigation off" :aria-expanded="$store.state.navToggled")
     .overlay-content
       slot(name="navigation")
 </template>
