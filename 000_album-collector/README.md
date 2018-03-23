@@ -374,9 +374,11 @@ export default {
 </script>
 ```
 
-TODO: ### Implement tabtrapping
+### Implement tabtrapping
 
 [vue-focus-lock](https://github.com/theKashey/vue-focus-lock)
+
+TODO: update: implement in a more reusable way that doesn't interfere with layout
 
 ## Check Accessibility and other issues
 
