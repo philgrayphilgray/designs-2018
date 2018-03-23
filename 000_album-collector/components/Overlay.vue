@@ -1,22 +1,40 @@
 <template lang="pug">
   .overlay(@click="toggle" role="dialog")
-    img.menu-button-close(src="~/assets/svg/cross.svg" role="button" alt="Close menu" aria-label="Toggle navigation off" :aria-expanded="$store.state.navToggled")
-    .overlay-content
-      slot(name="navigation")
+      button.menu-button-close(role="button" alt="Close menu" aria-label="Toggle navigation off" :aria-expanded="$store.state.navToggled")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      .overlay-content
+        FocusLock
+          slot(name="navigation")
 </template>
 <script>
+import FocusLock from 'vue-focus-lock';
 export default {
-  props: ['toggle']
+  components: { FocusLock },
+  props: ['toggle'],
   // TODO: tabtrapping
+  data() {
+    return {
+      active: '',
+      oldActive: ''
+    };
+  },
+  methods: {
+    storeActiveElement() {},
+    setActiveElement() {}
+  }
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .overlay {
   height: 100vh;
   width: 100vw;
   background: #000;
   color: #fff;
-  position: absolute;
+  position: fixed;
+  overflow: auto;
 
   z-index: 100;
 }
@@ -29,14 +47,41 @@ export default {
   padding-top: 10em;
 }
 .menu-button-close {
-  background: white;
-  position: absolute;
-  right: 0;
   margin: 1em;
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  right: 0;
+  position: absolute;
   padding: 1em;
-  justify-self: start;
+
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  transition: all 0.1s ease-out;
+
   &:hover {
     cursor: pointer;
   }
+}
+
+.icon-bar {
+  display: block;
+  background: #fff;
+  height: 3px;
+  width: 22px;
+  border-radius: 1px;
+  transform-origin: 21px;
+}
+.icon-bar:nth-child(3) {
+  opacity: 0;
+}
+.icon-bar:nth-child(2) {
+  transform: rotate(-45deg);
+}
+.icon-bar:nth-child(4) {
+  transform: rotate(45deg);
+}
+.icon-bar + .icon-bar {
+  margin-top: 4px;
 }
 </style>

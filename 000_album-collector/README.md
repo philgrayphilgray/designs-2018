@@ -297,9 +297,9 @@ firebase login
 
 TODO: complete cloud instructions
 
-TODO: #### move image upload to its own component
+#### move image upload to its own component
 
-TODO: #### display progress and replace the file input with a custom upload button
+#### display progress and replace the file input with a custom upload button
 
 * Install and import axios to handle the ajax request
 * Inside the `onUpload` method, initialize a new `FormData` object (a default JS object)
@@ -375,6 +375,8 @@ export default {
 ```
 
 TODO: ### Implement tabtrapping
+
+[vue-focus-lock](https://github.com/theKashey/vue-focus-lock)
 
 ## Check Accessibility and other issues
 

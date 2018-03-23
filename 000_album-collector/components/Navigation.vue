@@ -5,10 +5,14 @@
   nav(role="navigation")
       ul
           li
-              nuxt-link(tag="a" to="/") Home
+              nuxt-link(tag="a" to="/" tabindex="0") Home
           li
               nuxt-link(tag="a" to="/new") Add
 </template>
+
+<script>
+export default {};
+</script>
 <style scoped>
 .navigation {
   justify-self: flex-start;

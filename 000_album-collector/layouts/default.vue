@@ -2,7 +2,7 @@
   <div>
     <a class="skip-link sr-only" href="#main-content">Skip to the main content</a>
     <Header/>
-    <main id="main-content">
+    <main id="main-content" >
       <nuxt class="container"/>
     </main>
   </div>
@@ -77,5 +77,9 @@ html {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.noscroll {
+  overflow-y: hidden;
 }
 </style>
