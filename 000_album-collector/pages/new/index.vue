@@ -1,19 +1,14 @@
 <template lang="pug">
-  div.new-form
-    img(:src="art")
-    form(@submit.prevent="submitHandler")
-      strong.line-through Album Details
-      //- ImageUpload(:newAlbum="newAlbum" @change="")
-      input(type="file" @change="onFileSelected")
-      button(@click.prevent="onUpload") Upload
-      FormInput(v-for="(inputElement, index) in Object.keys(newAlbum)"  :inputName="inputElement" :key="inputElement" @change="inputHandler")
-      button.button-submit(type="submit" role="button" aria-labelledby="Submit a new album") save
+div.new-form
+  strong.line-through Album Details
+  ImageUpload(:art="art" @uploaded="imageUploaded")
+  form(@submit.prevent="submitHandler")
+    FormInput(v-for="(inputElement, index) in Object.keys(newAlbum)"  :inputName="inputElement" :key="inputElement" @change="inputHandler")
+    button.button-submit(type="submit" role="button" aria-labelledby="Submit a new album") save
 </template>
 
 
 <script>
-import axios from 'axios';
-
 import FormInput from '../../components/FormInput';
 import ImageUpload from '../../components/ImageUpload';
 export default {
@@ -23,7 +18,6 @@ export default {
   },
   data() {
     return {
-      upload: null,
       art: '',
       newAlbum: {
         title: '',
@@ -35,28 +29,8 @@ export default {
   },
 
   methods: {
-    onFileSelected: function(e) {
-      this.upload = e.target.files[0];
-    },
-    onUpload() {
-      const uploadFileFunction = process.env.UPLOAD_FILE_FUNCTION;
-      const fd = new FormData();
-      fd.append('file', this.upload, this.upload.name);
-      axios
-        .post(uploadFileFunction, fd, {
-          onUploadProgress: uploadEvent => {
-            console.log(uploadEvent);
-            console.log(
-              'Upload Progress: ' +
-                Math.round(uploadEvent.loaded / uploadEvent.total * 100) +
-                '%'
-            );
-          }
-        })
-        .then(res => {
-          this.art = res.data.url[0];
-          console.log(res);
-        });
+    imageUploaded: function({ url }) {
+      this.art = url;
     },
     inputHandler: function({ input, inputValue }) {
       this.newAlbum[input] = inputValue;
