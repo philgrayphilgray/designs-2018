@@ -252,6 +252,65 @@ export default {
 </script>
 ```
 
+TODO: #### Customize the input types
+TODO: #### Implement image upload
+
+SRC: [Vue Image Upload Made Easy
+](https://www.youtube.com/watch?v=VqnJwh6E9ak)
+
+* Create an input `type=file` element with an `@change` property that calls a method `onFileSelected(event)`
+* The event object contains a `target.files` property, which is an array of all the files the user chose; the
+* In the `onFileSelected` method, store this first item of the event `target.files` array to a property in local state
+
+```js
+    onFileSelected: function(e) {
+      this.newAlbum.art = e.target.files[0];
+    },
+```
+
+* Create a firebase cloud function
+* Create a new firebase project
+* Install `npm install -g firebase-tools` locally
+* Sign into your firebase account from the firebase-cli tool
+
+```bash
+firebase login
+```
+
+* Login using the provided URL
+* CD to the project directory and `firebase init`
+* Choose `Functions`
+* Install dependencies
+* Install collection of functions that allows us to put data in a bucket: `npm install --save @google-cloud/storage`
+* Creat a new function in `index.js`
+* Require `@google-cloud/storage` and instantiate it
+* Install and require `spawn` from the spawn property on `child-process-promise`
+* Run `firebase deploy` inside the directory in the cli
+* Create a `uploadFile` function using `functions.https.onRequest`, with the same callback parameters / syntax as an express route or middleware
+* Install cors, `npm install --save cors`, and require, passing in an options object, `{origin: true}`
+* Wrap the inner
+* Install busboy, `npm install --save busboy` and require it
+* Generate a private key to initialize cloud storage (Firebase > Settings > Service Accounts > Firebase Admin SDK > Generate new private key)
+
+TODO: complete cloud instructions
+
+TODO: #### move image upload to its own component
+
+TODO: #### display progress and replace the file input with a custom upload button
+
+* Install and import axios to handle the ajax request
+* Inside the `onUpload` method, initialize a new `FormData` object (a default JS object)
+* Call the append method on the FormData object, pass in a form name, selected file (from state), and the name of the file
+* Add a third argument to the axios post in an options object, `onUploadProgress`
+* Declare a parameter `uploadEvent` to capture the event object that's returned; this will give you access to two properties `loaded` and `total` which can be manipulated to get a percentage
+* Hide the input element and instead use a file picker button
+* Add a ref (`ref="fileInput"`) to the input, and style it to not display
+* On the file picker button, add a `@click` property and set it to `$refs.fileInput.click()` to proxy the click
+
+TODO: implement drag and drop, https://css-tricks.com/drag-and-drop-file-uploading/
+
+TODO: #### Implement validation
+
 ## Create the navigation overlay
 
 * The navigation is global and can be opened from anywhere, so it's state should be managed in the global vuex `$store`
@@ -343,3 +402,5 @@ TODO: ## Add edit and delete controls to Card
 TODO: ## Add edit page to Card
 
 TODO: ## Add search, filter, and sorting controls to CardGrid
+
+TODO: ## Implement transitions and animations
