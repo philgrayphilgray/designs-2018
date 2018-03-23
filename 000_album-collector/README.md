@@ -4,6 +4,8 @@
 
 ## Build Setup
 
+* Edit `.sample-env` with your cloud function URL and save as `.env`
+
 ```bash
 # install dependencies
 $ npm install # Or yarn install
@@ -253,7 +255,8 @@ export default {
 ```
 
 TODO: #### Customize the input types
-TODO: #### Implement image upload
+
+#### Implement image upload
 
 SRC: [Vue Image Upload Made Easy
 ](https://www.youtube.com/watch?v=VqnJwh6E9ak)
