@@ -81,7 +81,7 @@ export default {
 <style>
 figure {
   position: relative;
-  margin: 0 auto;
+  margin: 1em auto;
   height: 300px;
   width: 300px;
   background: #ccc;
@@ -89,13 +89,17 @@ figure {
   align-items: center;
   justify-content: center;
 }
+#fileInput:focus + figure {
+  outline: -webkit-focus-ring-color auto 5px;
+}
 .image-uploaded {
   max-width: 100%;
   height: auto;
+  position: absolute;
+  z-index: 10;
 }
 
 .dragHere {
-  position: absolute;
   height: 250px;
   width: 250px;
   background: rgba(221, 221, 221, 0.303);
@@ -103,6 +107,7 @@ figure {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 11;
 }
 
 .dragHere:hover {

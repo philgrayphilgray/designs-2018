@@ -6,25 +6,11 @@
         span.icon-bar
         span.icon-bar
       .overlay-content
-        FocusLock
-          slot(name="navigation")
+        slot(name="navigation")
 </template>
 <script>
-import FocusLock from 'vue-focus-lock';
 export default {
-  components: { FocusLock },
-  props: ['toggle'],
-  // TODO: tabtrapping
-  data() {
-    return {
-      active: '',
-      oldActive: ''
-    };
-  },
-  methods: {
-    storeActiveElement() {},
-    setActiveElement() {}
-  }
+  props: ['toggle']
 };
 </script>
 <style lang="scss" scoped>

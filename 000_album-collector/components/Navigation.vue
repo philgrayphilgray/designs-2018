@@ -2,16 +2,22 @@
 .navigation
   .branding
     img(src="~/assets/svg/logo-menu.svg" alt="Album Collector")   
-  nav(role="navigation")
+  FocusLock
+    nav(role="navigation")
       ul
           li
-              nuxt-link(tag="a" to="/" tabindex="0") Home
+              nuxt-link(tag="a" to="/" ) Home
           li
-              nuxt-link(tag="a" to="/new") Add
+              nuxt-link(tag="a" to="/new" ) Add
 </template>
 
 <script>
-export default {};
+import FocusLock from 'vue-focus-lock';
+export default {
+  components: {
+    FocusLock
+  }
+};
 </script>
 <style scoped>
 .navigation {
