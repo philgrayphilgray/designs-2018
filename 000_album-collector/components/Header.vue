@@ -1,14 +1,14 @@
 <template lang="pug">
-div(@keyup.esc="toggleOverlay")
+.header(@keyup.esc="toggleOverlay")
     Overlay(v-if="$store.state.navToggled" :toggle="toggleOverlay")
       div(slot="navigation")
         Navigation
-    header(role="banner")
-        button.menu-button(@click="toggleOverlay" type="button" aria-label="Toggle navigation on" :aria-expanded="$store.state.navToggled")
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        .logo
+    header.header__navBar(role="banner")
+        button.header__button(@click="toggleOverlay" type="button" aria-label="Toggle navigation on" :aria-expanded="$store.state.navToggled")
+          span.header__buttonIconBar
+          span.header__buttonIconBar
+          span.header__buttonIconBar
+        .header__logo
           nuxt-link(to="/")
             img(src="~/assets/svg/logo.svg" alt="Album Collector")
 
@@ -16,22 +16,22 @@ div(@keyup.esc="toggleOverlay")
 
 
 <script>
-import Overlay from '../components/Overlay';
-import Navigation from '../components/Navigation';
+import Overlay from "../components/Overlay";
+import Navigation from "../components/Navigation";
 
 export default {
   components: { Overlay, Navigation },
 
   methods: {
     toggleOverlay() {
-      this.$store.commit('toggleNav');
+      this.$store.commit("toggleNav");
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-header {
+.header__navBar {
   width: 100%;
   background: #403c3c;
   height: 56px;
@@ -41,11 +41,11 @@ header {
 
   justify-content: space-between;
 }
-.logo {
+.header__logo {
   margin: auto;
 }
 
-.menu-button {
+.header__button {
   margin-left: 1em;
   border-color: transparent;
   background-color: transparent;
@@ -59,7 +59,7 @@ header {
   }
 }
 
-.icon-bar {
+.header__buttonIconBar {
   display: block;
   background: #fff;
   height: 3px;
@@ -67,7 +67,7 @@ header {
   border-radius: 1px;
 }
 
-.icon-bar + .icon-bar {
+.header__buttonIconBar + .header__buttonIconBar {
   margin-top: 4px;
 }
 </style>

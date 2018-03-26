@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a class="skip-link sr-only" href="#main-content">Skip to the main content</a>
+    <a class="skipLink --sr-only" href="#main-content">Skip to the main content</a>
     <Header/>
     <main id="main-content" >
       <nuxt class="container"/>
@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import Header from '../components/Header';
+import Header from "../components/Header";
 export default {
   components: {
     Header
@@ -17,8 +17,8 @@ export default {
 </script>
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -68,7 +68,7 @@ html {
   background-color: #35495e;
 }
 
-.sr-only {
+.--sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -79,7 +79,7 @@ html {
   border: 0;
 }
 
-.noscroll {
+.--noscroll {
   overflow-y: hidden;
 }
 </style>

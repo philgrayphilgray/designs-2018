@@ -1,12 +1,11 @@
 <template lang="pug">
-  div
-    .card-container
-        Card(v-for="(album, index) in $store.state.albums" :album="album" :key="index")
+.cardGrid
+  Card(v-for="(album, index) in $store.state.albums" :album="album" :key="index")
     
 </template>
 
 <script>
-import Card from '../components/Card';
+import Card from "../components/Card";
 export default {
   components: {
     Card
@@ -15,7 +14,7 @@ export default {
 </script>
 
 <style>
-.card-container {
+.cardGrid {
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -23,8 +22,8 @@ export default {
   justify-content: center;
 }
 
-.card-container .Card {
-  margin: 1em;
+.cardGrid .card {
+  margin: 0.5em;
 }
 </style>
 

@@ -1,18 +1,18 @@
 <template lang="pug">
 .navigation
-  .branding
-    img(src="~/assets/svg/logo-menu.svg" alt="Album Collector")   
+  .navigation__branding
+    img.navigation__logo(src="~/assets/svg/logo-menu.svg" alt="Album Collector")   
   FocusLock
-    nav(role="navigation")
-      ul
-          li
+    nav.navigation__menu(role="navigation")
+      ul.navigation__list
+          li.navigation__item
               nuxt-link(tag="a" to="/" ) Home
-          li
+          li.navigation__item
               nuxt-link(tag="a" to="/new" ) Add
 </template>
 
 <script>
-import FocusLock from 'vue-focus-lock';
+import FocusLock from "vue-focus-lock";
 export default {
   components: {
     FocusLock
@@ -23,16 +23,16 @@ export default {
 .navigation {
   justify-self: flex-start;
 }
-nav {
+.navigation__menu {
   text-align: center;
   font-size: 2em;
 }
-ul {
+.navigation__list {
   list-style: none;
   padding: 0;
 }
 
-li a {
+.navigation__item a {
   color: #fff;
   text-decoration: none;
 }

@@ -1,26 +1,26 @@
 <template lang="pug">
-.form-input
-    label.sr-only(:for="inputName") {{capitalizedInputName}}
-    input(:id="inputName" :name="inputName" :placeholder="capitalizedInputName" v-model="inputValue" @keyup="changeHandler")
+.formInput
+    label.formInput__label.--sr-only(:for="inputName") {{capitalizedInputName}}
+    input.formInput__input(:id="inputName" :name="inputName" :placeholder="capitalizedInputName" v-model="inputValue" @keyup="changeHandler")
 </template>
 
 <script>
 export default {
-  props: ['inputName'],
+  props: ["inputName"],
   data() {
     return {
-      inputValue: ''
+      inputValue: ""
     };
   },
   computed: {
     capitalizedInputName() {
       const [firstLetter, ...otherLetters] = this.inputName;
-      return firstLetter.toUpperCase() + otherLetters.join('');
+      return firstLetter.toUpperCase() + otherLetters.join("");
     }
   },
   methods: {
     changeHandler() {
-      this.$emit('change', {
+      this.$emit("change", {
         input: this.inputName,
         inputValue: this.inputValue
       });
@@ -30,15 +30,15 @@ export default {
 </script>
 
 <style scoped>
-.form-input {
+.formInput {
   margin-bottom: 1em;
 }
-.form-input > * {
+.formInput > * {
   display: block;
   margin: 0.5em 0;
 }
 
-input {
+.formInput__input {
   border-radius: 2px;
   padding: 1em 0.75em 0.6875em;
   width: 100%;

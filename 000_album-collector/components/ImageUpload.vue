@@ -1,17 +1,15 @@
 <template lang="pug">
-div
-  label.sr-only(for="fileInput") Upload an album cover
-  input#fileInput.sr-only(type="file" ref="fileInput" @change="onFileSelected")
-  figure(@click="changeImage")
-    div.dragHere(@mouseleave="dontChangeImage" v-if="show" @click="$refs.fileInput.click()")
-      div.drag-content(aria-relevant)
-        div.icon
-          img(src="~/assets/svg/cloud-upload.svg")
-        div.outer-bar(v-if="upload")
-          div.inner-bar(:style="{width: percentage + '%'}")
-        div
+.imageUpload
+  label.imageUpload__label.--sr-only(for="fileInput") Upload an album cover
+  input.imageUpload__input.--sr-only(type="file" ref="fileInput" @change="onFileSelected")
+  .imageUpload__container(@click="changeImage")
+    .imageUpload__dragArea(@mouseleave="dontChangeImage" v-if="show" @click="$refs.fileInput.click()")
+      .imageUpload__dragContent(aria-relevant)
+        img.imageUpload__icon(src="~/assets/svg/cloud-upload.svg")
+        ProgressBar(:percentage="percentage" :upload="upload")
+        .imageUpload__status
           p(v-if="upload")
-            strong Nice!
+            strong One moment...
             |
             span(v-if="percentage>25")   Almost there!
           p(v-else) 
@@ -19,15 +17,18 @@ div
             strong Click
             |  to upload an image.
             
-    img.image-uploaded(:src="art")
-  //- button(@click.prevent="onUpload") Upload
+    img.imageUpload__image(:src="art")
 </template>
 <script>
-import axios from 'axios';
+import axios from "axios";
+import ProgressBar from "./ProgressBar";
 export default {
+  components: {
+    ProgressBar
+  },
   data() {
     return {
-      art: '',
+      art: "",
       upload: null,
       percentage: 0,
       show: true
@@ -51,7 +52,7 @@ export default {
     onUpload() {
       const uploadFileFunction = process.env.UPLOAD_FILE_FUNCTION;
       const fd = new FormData();
-      fd.append('file', this.upload, this.upload.name);
+      fd.append("file", this.upload, this.upload.name);
       axios
         .post(uploadFileFunction, fd, {
           onUploadProgress: uploadEvent => {
@@ -69,7 +70,7 @@ export default {
         });
     },
     changeHandler(uploadUrl) {
-      this.$emit('uploaded', { url: uploadUrl });
+      this.$emit("uploaded", { url: uploadUrl });
       this.upload = null;
       this.percentage = 0;
       this.show = false;
@@ -79,7 +80,7 @@ export default {
 </script>
 
 <style>
-figure {
+.imageUpload__container {
   position: relative;
   margin: 1em auto;
   height: 300px;
@@ -89,54 +90,39 @@ figure {
   align-items: center;
   justify-content: center;
 }
-#fileInput:focus + figure {
+.imageUpload__input:focus + .imageUpload__container {
   outline: -webkit-focus-ring-color auto 5px;
 }
-.image-uploaded {
+.imageUpload__image {
   max-width: 100%;
   height: auto;
   position: absolute;
   z-index: 10;
 }
 
-.dragHere {
+.imageUpload__dragArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 250px;
   width: 250px;
   background: rgba(221, 221, 221, 0.303);
   border: 3px dashed rgb(221, 221, 221);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  cursor: pointer;
   z-index: 11;
 }
 
-.dragHere:hover {
+.imageUpload__dragArea:hover {
   background: rgba(221, 221, 221, 0.503);
 }
 .green-border {
   border: 2px solid green;
 }
 
-.outer-bar {
-  position: relative;
-  margin: 1em 0;
-  width: 100%;
-  height: 20px;
-  border: 1px solid #555;
-  background: #fff;
-  overflow: hidden;
-}
-.inner-bar {
-  position: absolute;
-  background: rgb(46, 140, 88);
-  width: 0%;
-  height: 20px;
-  transition: all 1s ease-in;
-}
-.drag-content {
+.imageUpload__dragContent {
   width: 200px;
 }
-.icon {
+.imageUpload__icon {
   flex-basis: 100%;
 }
 </style>
