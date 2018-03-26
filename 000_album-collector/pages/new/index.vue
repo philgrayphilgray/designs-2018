@@ -2,6 +2,7 @@
 form.newForm(@submit.prevent="submitHandler")
   ImageUpload(:art="art" @uploaded="imageUploaded")
   FormInput(v-for="(inputElement, index) in Object.keys(newAlbum)" :inputName="inputElement" :key="inputElement" @change="inputHandler")
+  StarRating(:rating="rating" @rated="ratingUpdated")
   button.newForm__submit(type="submit" role="button" aria-labelledby="Submit a new album") Save
 </template>
 
@@ -9,19 +10,21 @@ form.newForm(@submit.prevent="submitHandler")
 <script>
 import FormInput from "../../components/FormInput";
 import ImageUpload from "../../components/ImageUpload";
+import StarRating from "../../components/StarRating";
 export default {
   components: {
     FormInput,
-    ImageUpload
+    ImageUpload,
+    StarRating
   },
   data() {
     return {
       art: "",
+      rating: 0,
       newAlbum: {
         title: "",
         artist: "",
-        year: "",
-        rating: ""
+        year: ""
       }
     };
   },
@@ -30,11 +33,18 @@ export default {
     imageUploaded: function({ url }) {
       this.art = url;
     },
+    ratingUpdated: function({ newRating }) {
+      this.rating = newRating;
+    },
     inputHandler: function({ input, inputValue }) {
       this.newAlbum[input] = inputValue;
     },
     submitHandler(e) {
-      const newAlbumWithArt = { ...this.newAlbum, art: this.art };
+      const newAlbumWithArt = {
+        ...this.newAlbum,
+        art: this.art,
+        rating: this.rating
+      };
       this.$store.commit("add", newAlbumWithArt);
       e.target.reset();
       this.$router.push({ path: "/" });

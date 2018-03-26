@@ -5,8 +5,7 @@
       p {{album.title}}
       p {{album.artist}}
       p {{album.year}}
-      span
-        Star(v-for="(star, index) in stars" :power="star" :key="index")
+      StarRating(:rating="album.rating")
     .card__controls
       button.card__button
         img.card__icon(src="~/assets/svg/pencil.svg")
@@ -16,30 +15,11 @@
 </template>
 
 <script>
-import Star from "./Star";
+import StarRating from "./StarRating";
 export default {
-  data() {
-    return {
-      stars: []
-    };
-  },
   props: ["album"],
   components: {
-    Star
-  },
-  beforeMount() {
-    this.setStars();
-  },
-  methods: {
-    setStars() {
-      for (let i = 1; i <= 5; i++) {
-        if (i <= this.album.rating) {
-          this.stars.push(true);
-        } else {
-          this.stars.push(false);
-        }
-      }
-    }
+    StarRating
   }
 };
 </script>
