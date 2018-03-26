@@ -82,4 +82,16 @@ html {
 .--noscroll {
   overflow-y: hidden;
 }
+
+/* page transitions */
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.25s ease-out;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
 </style>

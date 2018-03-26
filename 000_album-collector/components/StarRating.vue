@@ -1,11 +1,11 @@
 <template lang="pug">
-.starRating
+.starRating(:class="editable ? '--editable' : null")
     span.starRating__starIcon(v-for="star, index in stars" :class="star === true ? '--star-full' : '--star-empty'" :key="index" @click="clickHandler(index)")
 </template>
 
 <script>
 export default {
-  props: ["rating"],
+  props: ["rating", "editable"],
   data() {
     return {
       stars: []
@@ -51,7 +51,6 @@ export default {
   height: 2em;
   width: 2em;
   display: inline-block;
-  cursor: pointer;
 }
 
 .--star-empty {
@@ -60,5 +59,9 @@ export default {
 
 .--star-full {
   background-image: url("~/assets/svg/star-full.svg");
+}
+
+.starRating.--editable .starRating__starIcon {
+  cursor: pointer;
 }
 </style>

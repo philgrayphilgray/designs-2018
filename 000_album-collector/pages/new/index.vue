@@ -2,7 +2,7 @@
 form.newForm(@submit.prevent="submitHandler")
   ImageUpload(:art="art" @uploaded="imageUploaded")
   FormInput(v-for="(inputElement, index) in Object.keys(newAlbum)" :inputName="inputElement" :key="inputElement" @change="inputHandler")
-  StarRating(:rating="rating" @rated="ratingUpdated")
+  StarRating(:rating="rating" @rated="ratingUpdated" :editable="true")
   button.newForm__submit(type="submit" role="button" aria-labelledby="Submit a new album") Save
 </template>
 

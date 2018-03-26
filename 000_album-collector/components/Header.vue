@@ -1,16 +1,17 @@
 <template lang="pug">
 .header(@keyup.esc="toggleOverlay")
+  transition(name="slideIn" mode="out-in")
     Overlay(v-if="$store.state.navToggled" :toggle="toggleOverlay")
       div(slot="navigation")
         Navigation
-    header.header__navBar(role="banner")
-        button.header__button(@click="toggleOverlay" type="button" aria-label="Toggle navigation on" :aria-expanded="$store.state.navToggled")
-          span.header__buttonIconBar
-          span.header__buttonIconBar
-          span.header__buttonIconBar
-        .header__logo
-          nuxt-link(to="/")
-            img(src="~/assets/svg/logo.svg" alt="Album Collector")
+  header.header__navBar(role="banner")
+      button.header__button(@click="toggleOverlay" type="button" aria-label="Toggle navigation on" :aria-expanded="$store.state.navToggled")
+        span.header__buttonIconBar
+        span.header__buttonIconBar
+        span.header__buttonIconBar
+      .header__logo
+        nuxt-link(to="/")
+          img(src="~/assets/svg/logo.svg" alt="Album Collector")
 
 </template>
 
@@ -69,5 +70,17 @@ export default {
 
 .header__buttonIconBar + .header__buttonIconBar {
   margin-top: 4px;
+}
+
+// Navigation SlideIn
+
+.slideIn-enter-active,
+.slideIn-leave-active {
+  transition: all 0.15s ease-in-out;
+}
+
+.slideIn-enter,
+.slideIn-leave-to {
+  transform: translateX(-200px);
 }
 </style>
