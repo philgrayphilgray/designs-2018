@@ -24,12 +24,23 @@ const createStore = () => {
         }
       ]
     },
+    getters: {
+      findAlbumById: state => albumId => {
+        return state.albums.filter(album => album.id === albumId);
+      }
+    },
     mutations: {
       add(state, newAlbum) {
         state.albums.push(newAlbum);
       },
       remove(state, albumId) {
         state.albums = state.albums.filter(album => album.id !== albumId);
+      },
+      update(state, updatedAlbum) {
+        state.albums = state.albums.filter(
+          album => album.id !== updatedAlbum.id
+        );
+        state.albums.push(updatedAlbum);
       },
       toggleNav(state) {
         state.navToggled = !state.navToggled;

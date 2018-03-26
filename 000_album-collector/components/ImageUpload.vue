@@ -17,7 +17,7 @@
             strong Click
             |  to upload an image.
             
-    img.imageUpload__image(:src="art")
+    img.imageUpload__image(:src="albumArt")
 </template>
 <script>
 import axios from "axios";
@@ -26,6 +26,7 @@ export default {
   components: {
     ProgressBar
   },
+  props: ["albumArt"],
   data() {
     return {
       art: "",
@@ -34,6 +35,7 @@ export default {
       show: true
     };
   },
+  beforeMount() {},
   methods: {
     onFileSelected: function(e) {
       this.upload = e.target.files[0];

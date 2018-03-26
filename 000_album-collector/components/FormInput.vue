@@ -6,11 +6,16 @@
 
 <script>
 export default {
-  props: ["inputName"],
+  props: ["inputName", "currentValue"],
   data() {
     return {
       inputValue: ""
     };
+  },
+  beforeMount() {
+    if (this.currentValue) {
+      this.inputValue = this.currentValue;
+    }
   },
   computed: {
     capitalizedInputName() {
