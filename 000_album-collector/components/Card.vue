@@ -7,10 +7,10 @@
       p {{album.year}}
       StarRating(:rating="album.rating")
     .card__controls
-      button.card__button
-        img.card__icon(src="~/assets/svg/pencil.svg")
-      button.card__button
-        img.card__icon(src="~/assets/svg/bin.svg")
+      button.card__button(type="button" aria-label="Edit card" @click="updateHandler(album.id)")
+        img.card__icon(src="~/assets/svg/pencil.svg" alt="Pencil")
+      button.card__button(type="button" aria-label="Delete card" @click="removeHandler(album.id)")
+        img.card__icon(src="~/assets/svg/bin.svg" alt="Bin")
     
 </template>
 
@@ -20,6 +20,14 @@ export default {
   props: ["album"],
   components: {
     StarRating
+  },
+  methods: {
+    removeHandler(id) {
+      this.$store.commit("remove", id);
+    },
+    updateHandler(id) {
+      this.$router.push({ path: `/${id}/edit` });
+    }
   }
 };
 </script>
