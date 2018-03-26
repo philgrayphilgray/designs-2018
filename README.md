@@ -118,6 +118,25 @@ Source: [SMACSS site](https://smacss.com/)
 
 #### Performance
 
+[20 Easy Win Performance Tips](https://syntax.fm/show/038/20-easy-win-performance-tips)
+
+* Load JS before closing body tag
+* Preload content with Link rel="preload" and rel="prefetch"
+* Use picturefill and srcset for responsive images
+* Use caching and LocalStorage
+* Enable GZIP
+* Host media on a CDN
+* Compress images
+* Use a tool for inlining SVG icons
+* Load critical CSS in link tag in the head
+* configure `no-unused-imports` in ESlint, purify css, and implement tree shaking
+* Implement code splitting
+* async and defer script tags
+* Use native font stack when possible; use `font-display` property
+
+https://alligator.io/vuejs/using-svg-icons/
+https://medium.com/@kossnocorp/solving-the-unsolvable-svg-icons-with-react-preact-webpack-4185032f2601
+
 #### Internationalization
 
 ### Beautiful
