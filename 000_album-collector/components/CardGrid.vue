@@ -1,7 +1,6 @@
 <template lang="pug">
-.cardGrid
+transitionGroup.cardGrid(name="cardTransition" mode="out-in" tag="div")
   Card(v-for="(album, index) in $store.state.albums" :album="album" :key="index")
-    
 </template>
 
 <script>
@@ -24,6 +23,17 @@ export default {
 
 .cardGrid .card {
   margin: 0.5em;
+}
+
+/* Card transition */
+.cardTransition-enter-active,
+.cardTransition-leave-active {
+  transition: all 0.25s ease-in-out;
+}
+
+.cardTransition-enter,
+.cardTransition-leave-to {
+  transform: translateX(200px);
 }
 </style>
 
