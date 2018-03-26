@@ -84,16 +84,60 @@ SMACSS is a simple approach to structuring modular CSS. It establishes a convent
 1.  **Base Rules**: Element selector rules and resets that apply as always-ok defaults.
 2.  **Layout Rules**: Rules specific to the alignment and flow of 'major' components, such as header, main, and footer, distinct from that of 'minor' components.
 3.  **Module Rules**: Rules for 'minor' components or the components that are nested in the 'major' components, such as navigation bars, carousels, dialogs, widgets, etc.
-4.  **State Rules**:
-5.  **Theme Rules**:
+4.  **State Rules**: Something that augments and overrides all other styles. A modifier class, usually dynamically applied during user interaction. Example: `--active`, `--open`, `--expanded`, `--closed`.
+5.  **Theme Rules**: Colors, (images, gradients, etc) and typography styles that give a site its aesthetic look and feel. Theme styles should be included very last, like a final aesthetic layer or filter.
 
 Source: [SMACSS site](https://smacss.com/)
 
 #### BEM
 
-[GetBEM.com](http://getbem.com/introduction/)
+* A block is a standalone entity, meaningful on its own.
+* An element is any part of a block with no standalone meaning, semantically tied to its block.
+* A modifier is a flag on a block element to change appearance or behavior.
+* Examples of the naming convention: `block--modifier`, `block__element`, `block__element--modifier`
+* Hyphenate mutliple-word names
+* Any DOM node within a block can be an element; there is no need for nesting
+* When adding a modifier class, preserve the original class
+* Example:
 
-[ABEM. A more useful adaptation of BEM.](https://css-tricks.com/abem-useful-adaptation-bem/)
+```html
+<div class="menu menu--expanded">
+  <ul class="menu__list">
+    <li class="menu__item menu__item--active">Edit</li>
+    <li class="menu__item">Help</li>
+  </ul>
+</div>
+```
+
+Source: [GetBEM.com](http://getbem.com/introduction/)
+
+* There are a number of variations on BEM. One that I've found helpful, especially in component design, is ABEM (Atomic Block Element Modifier).
+* The convention is `[a/m/o]-blockName__elementName -modifierName`
+* We often want to create small components without much standalone meaning to reuse is various other components
+* Consider, for instance, a button. If we're using or building a Vue or React component library, we might want to create an entire standalone component for a button. We then might use it in both the navigation menu, in a form, and also in a call-to-action. The button will have different semantic meaning in each use-case, but we can reuse the same component. It may have its own wrapper classes, state, and logic. But in each use case, we'll have to consider it an element of another block, and therefore, by BEM's conventions, it should be flattened. But thats not what we want.
+* Atomic design addresses this limitation. We can think of components as organisms, made up of molecules, that are made up of atoms. At every level, we can have components. An atomic button can be part of a form field molecule, which is part of a form organism.
+* By giving each block name an atomic prefix, we can create a hierarchy of blocks that build bigger blocks.
+* Use camelCase for multiple-word names
+* Separate the modifier flag from the block name; use only one hyphen, and try to use the modifier only at the block level
+
+* Example:
+
+```html
+<div class="o-headerMenu">
+<div class="m-searchBar">
+<input class="searchBar__input" />
+<button class="searchBar__submit">Search</button>
+</div>
+<div class="m-helpMenu -expanded">
+  <ul class="helpMenu__list">
+    <li class="helpMenu__item -active">Edit</li>
+    <li class="helpMenu__item">Help</li>
+  </ul>
+</div>
+</div>
+```
+
+Source: [ABEM. A more useful adaptation of BEM.](https://css-tricks.com/abem-useful-adaptation-bem/)
 
 #### Component-scoped CSS
 
