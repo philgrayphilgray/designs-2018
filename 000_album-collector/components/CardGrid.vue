@@ -1,6 +1,6 @@
 <template lang="pug">
 transitionGroup.cardGrid(name="cardTransition" mode="out-in" tag="div")
-  Card(v-for="(album, index) in $store.state.albums" :album="album" :key="index")
+  Card(v-for="(album, index) in albums" :album="album" :key="index")
 </template>
 
 <script>
@@ -8,7 +8,8 @@ import Card from "../components/Card";
 export default {
   components: {
     Card
-  }
+  },
+  props: ["albums"]
 };
 </script>
 

@@ -1,12 +1,16 @@
 <template lang="pug">
-  CardGrid
+div 
+  UserControls
+  CardGrid(:albums="$store.state.albums")
 </template>
 
 
 <script>
-import CardGrid from '../components/CardGrid';
+import UserControls from "../components/UserControls";
+import CardGrid from "../components/CardGrid";
 export default {
   components: {
+    UserControls,
     CardGrid
   }
 };
