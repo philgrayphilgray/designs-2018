@@ -312,8 +312,6 @@ TODO: complete cloud instructions
 
 TODO: implement drag and drop, https://css-tricks.com/drag-and-drop-file-uploading/
 
-TODO: #### Implement validation
-
 ## Create the navigation overlay
 
 * The navigation is global and can be opened from anywhere, so it's state should be managed in the global vuex `$store`
@@ -378,7 +376,7 @@ export default {
 
 [vue-focus-lock](https://github.com/theKashey/vue-focus-lock)
 
-TODO: update: implement in a more reusable way that doesn't interfere with layout
+TODO: Update: implement in a more reusable way that doesn't interfere with layout; `refs` should suffice here
 
 ## Check Accessibility and other issues
 
@@ -411,3 +409,12 @@ lighthouse http://localhost:3000 --view
 ## Add search, filter, and sorting controls to CardGrid
 
 ## Implement transitions and animations
+
+## TODO: Implement validation
+
+## TODO: Add empty add card
+
+## TODO: Theming
+
+* TODO: Colors
+* TODO: Typography
