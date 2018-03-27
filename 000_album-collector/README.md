@@ -254,7 +254,7 @@ export default {
 </script>
 ```
 
-TODO: #### Customize the input types
+#### Customize the input types
 
 #### Implement image upload
 
@@ -404,10 +404,10 @@ yarn start
 lighthouse http://localhost:3000 --view
 ```
 
-TODO: ## Add edit and delete controls to Card
+## Add edit and delete controls to Card
 
-TODO: ## Add edit page to Card
+## Add edit page to Card
 
-TODO: ## Add search, filter, and sorting controls to CardGrid
+## Add search, filter, and sorting controls to CardGrid
 
-TODO: ## Implement transitions and animations
+## Implement transitions and animations
