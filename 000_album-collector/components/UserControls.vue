@@ -1,8 +1,8 @@
 <template lang="pug">
 .userControls
-    input.userControls__search(:class="search.active ? '--active' : null" type="text" role="search" placeholder="search" aria-label="Search field" ref="searchInput" v-model="search.query")
-    button.userControls__button(aria-label="Search button" @click="searchButtonHandler")
-        img.userControls__icon(src="~/assets/svg/search.svg" alt="Magnifying glass")
+    input.userControls__search(:class="search.active ? '--active' : null" type="text" role="search" placeholder="search" aria-label="Search field" ref="searchInput" v-model="search.query" @keyup="searchHandler" @keyup.esc="clearSearch")
+    button.userControls__button(aria-label="Search button" @click="searchButtonHandler" ref="searchButton")
+        img.userControls__icon(:src="search.active ? require('~/assets/svg/cancel-circle.svg') : require('~/assets/svg/search.svg')" alt="Magnifying glass")
     button.userControls__button(aria-label="Sort by title" @click="sortAlphaHandler")
         img.userControls__icon(:src="sort.alpha.asc ? require('~/assets/svg/sort-alpha-asc.svg') : require('~/assets/svg/sort-alpha-desc.svg')" alt="Alphabetical sort")
     button.userControls__button(aria-label="Sort by rating" @click="sortRatingHandler")
@@ -21,15 +21,29 @@ export default {
   },
   methods: {
     searchButtonHandler() {
+      if (this.search.active) {
+        this.search.query = '';
+      }
       this.search.active = !this.search.active;
       this.$refs.searchInput.focus();
     },
+    clearSearch() {
+      this.search.active = false;
+      this.search.query = '';
+      this.$emit('queryChange', { query: this.search.query });
+      this.$refs.searchButton.focus();
+    },
+    searchHandler() {
+      this.$emit('queryChange', { query: this.search.query });
+    },
     sortAlphaHandler() {
+      this.$emit('sortTitleChange', { asc: this.sort.alpha.asc });
       this.search.active = false;
       this.sort.alpha.active = true;
       this.sort.alpha.asc = !this.sort.alpha.asc;
     },
     sortRatingHandler() {
+      this.$emit('sortRatingChange', { asc: this.sort.rating.asc });
       this.search.active = false;
       this.sort.rating.active = true;
       this.sort.rating.asc = !this.sort.rating.asc;
