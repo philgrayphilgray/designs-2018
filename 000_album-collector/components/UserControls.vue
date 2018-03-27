@@ -1,24 +1,38 @@
 <template lang="pug">
 .userControls
-    input.userControls__search(:class="search ? '--active' : null" type="text" role="search" placeholder="search" aria-label="Search field" ref="searchInput")
+    input.userControls__search(:class="search.active ? '--active' : null" type="text" role="search" placeholder="search" aria-label="Search field" ref="searchInput" v-model="search.query")
     button.userControls__button(aria-label="Search button" @click="searchButtonHandler")
         img.userControls__icon(src="~/assets/svg/search.svg" alt="Magnifying glass")
-    button.userControls__button(aria-label="Sort by rating")
-        img.userControls__icon(src="~/assets/svg/equalizer.svg" alt="Rating sort")
-    button.userControls__button(aria-label="Sort by title")
-        img.userControls__icon(src="~/assets/svg/equalizer2.svg" alt="Alphabetical sort")
+    button.userControls__button(aria-label="Sort by title" @click="sortAlphaHandler")
+        img.userControls__icon(:src="sort.alpha.asc ? require('~/assets/svg/sort-alpha-asc.svg') : require('~/assets/svg/sort-alpha-desc.svg')" alt="Alphabetical sort")
+    button.userControls__button(aria-label="Sort by rating" @click="sortRatingHandler")
+        img.userControls__icon(:src="sort.rating.asc ? require('~/assets/svg/sort-amount-asc.svg') : require('~/assets/svg/sort-amount-desc.svg')" alt="Rating sort")
 </template>
 <script>
 export default {
   data() {
     return {
-      search: false
+      search: { active: false, query: '' },
+      sort: {
+        alpha: { active: false, asc: true },
+        rating: { active: false, asc: false }
+      }
     };
   },
   methods: {
     searchButtonHandler() {
-      this.search = !this.search;
+      this.search.active = !this.search.active;
       this.$refs.searchInput.focus();
+    },
+    sortAlphaHandler() {
+      this.search.active = false;
+      this.sort.alpha.active = true;
+      this.sort.alpha.asc = !this.sort.alpha.asc;
+    },
+    sortRatingHandler() {
+      this.search.active = false;
+      this.sort.rating.active = true;
+      this.sort.rating.asc = !this.sort.rating.asc;
     }
   }
 };
@@ -27,10 +41,13 @@ export default {
 .userControls {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  min-width: 310px;
 
-  background: #aaa;
-  padding: 1em 0.5em;
+  margin: 0 auto;
+  justify-content: center;
+  background: #c4c4c4;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 3em;
 }
 
 .userControls__icon {
@@ -43,6 +60,7 @@ export default {
   border: transparent;
 }
 .userControls__search {
+  font-size: 1.5em;
   width: 0;
   padding: 0;
   margin: 0;

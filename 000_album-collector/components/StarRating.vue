@@ -5,7 +5,7 @@
 
 <script>
 export default {
-  props: ["rating", "editable"],
+  props: ['rating', 'editable'],
   data() {
     return {
       stars: []
@@ -32,7 +32,7 @@ export default {
     },
     clickHandler(index) {
       const newRating = index + 1;
-      this.$emit("rated", { newRating });
+      this.$emit('rated', { newRating });
     }
   }
 };
@@ -54,11 +54,11 @@ export default {
 }
 
 .--star-empty {
-  background-image: url("~/assets/svg/star-empty.svg");
+  background-image: url('~/assets/svg/star-empty.svg');
 }
 
 .--star-full {
-  background-image: url("~/assets/svg/star-full.svg");
+  background-image: url('~/assets/svg/star-full.svg');
 }
 
 .starRating.--editable .starRating__starIcon {
