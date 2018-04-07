@@ -181,6 +181,24 @@ Source: [ABEM. A more useful adaptation of BEM.](https://css-tricks.com/abem-use
 https://alligator.io/vuejs/using-svg-icons/
 https://medium.com/@kossnocorp/solving-the-unsolvable-svg-icons-with-react-preact-webpack-4185032f2601
 
+[Web Performance on Front End Masters](https://frontendmasters.com/courses/web-performance)
+
+* [slides](https://speakerdeck.com/stevekinney/web-performance)
+
+##### Benchmarks
+
+* Jakob Nielsen
+* 0.1s feels instantaneous
+* "1.0s is about the limit for the user's flow of thought to stay uninterrupted"
+* 1s slow down results in 11% fewer pv, 7% less conversion
+* 2s delay = >100% bounce rate
+* 53% users will leave a mobile website that takes more than 3s to load
+* To feel faster, you need to be 20% faster than competitors
+
+* (Google) RAIL: Response, Animation, Idle, Load
+* Do less stuff takes less time.
+* If you can do it later, do it later
+
 #### Internationalization
 
 ### Beautiful
