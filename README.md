@@ -199,6 +199,20 @@ https://medium.com/@kossnocorp/solving-the-unsolvable-svg-icons-with-react-preac
 * Do less stuff takes less time.
 * If you can do it later, do it later
 
+##### Javascript
+
+* Parsing can be slow, as slow as 1mb/s on mobile
+* Eager, Lazy parsing
+* Optimize-js
+* https://nolanlawson.github.io/test-optimize-js/
+* After parsing, code is turned into an abstract syntax tree (ast)
+* From AST, the interpreter makes bytecode
+* Where possible, code is sent through the optimizing compiler
+* Optimizing compiler (TurboFan in Chrome V8) does three things that can help: speculative optimization, hidden classes for dynamic lookups, function inlining
+* `node --trace-opt <file-name>`: trace optimizations
+* `node --trace-opt <file-name> | grep add`
+* `trace-deopt`:
+
 #### Internationalization
 
 ### Beautiful
