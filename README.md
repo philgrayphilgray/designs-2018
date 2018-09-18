@@ -233,6 +233,34 @@ https://medium.com/@kossnocorp/solving-the-unsolvable-svg-icons-with-react-preac
 * [The Elements
   of Typographic Style
   Applied to the Web](http://webtypography.net/)
+* [Responsive Web Typography v2 on Front End Masters](https://frontendmasters.com/courses/responsive-typography-v2)
+
+
+##### Notes from Responsive Web Typography v2 on Front End Masters
+* Plan for FOUT with fallback fonts
+* Small screens demand subtle scale; do not just scale with screen size
+* There's no harm in creating additional breakpoints (tweak points) just for a single element or for type; when we design for a CMS, we need to think more about scalability
+* Feel free to embrace serifs; sans-serifs were originally popular in screen design because of low-screen resolution; but that's no longer a factor
+* Look at vintage posters and typographers from different regions and eras for inspiration
+* Try pairing fonts that were created by the same type designer
+* Try to use the actual brand typeface for each project
+* Performance matters; load only what you need
+* Typeface vs. Font. The typeface is a whole family (like Trade Gothic Next LT Pro); the font is a specific instance of that typeface (like Trade Gothic Next LT Pro Bold)
+* Progressive Enhancement: CSS, fonts, and JS are all enhancements. First load it with CSS, and then use a JS loader (like [FONT FACE OBSERVER](https://fontfaceobserver.com/) for async and session storage fix. Linking to CSS or JS is a blocking request. 
+* FOUT is a feature, not a bug.
+* `font-display: swap;` is a newer property to handle.
+* As a convention, use the classes `.wf-active` and `.wf-inactive` on the `html` element.
+* Take some time to adjust `font-size`, `letter-spacing`, and `line-height` for the fallback font to avoid jumpiness; you only need to worry about what's above the fold.
+* We can be more subtle with headings on small screens because there are fewer distractions.
+* Use OpenType kerning and ligatures, turn on with CSS; don't leave orphans behind (use something like Widowtamer.js on the client side)
+* Large blocks of centered text are difficult to read; a smooth left or right edge is faster to read; do not center more than 2 lines of text; if you just want to visually center text, using padding-left
+* Use a paragraph max-width of `38em`; em is relative to the font-size.
+* Don't use pixels; every device is doing something slightly different to report back what the reference pixel value is; some devices go with true resolution when you don't expect it to. Set breakpoints with ems. Ems will alway relate back to 16px. Whatever px value you were going to use, divide by 16.
+* Use rems for setting a consistent max-width for headings and body copy.
+* Don't forget to use real content.
+* Use WOFF2
+* Rather than have separate files for a typeface, it's all delivered in one file. It's only using what has deliberately been put there by the type designer. There are a small number of registered axes (like `wght`, `slnt`, `ital`, `opsz`).
+* Variant fonts are completely extensible. Some common custom axes are `GRAD`, `YTAS`, `YTDE`
 
 #### Animation
 
