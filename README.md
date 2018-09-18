@@ -234,6 +234,7 @@ https://medium.com/@kossnocorp/solving-the-unsolvable-svg-icons-with-react-preac
   of Typographic Style
   Applied to the Web](http://webtypography.net/)
 * [Responsive Web Typography v2 on Front End Masters](https://frontendmasters.com/courses/responsive-typography-v2)
+* [Flexible typography with CSS locks](https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/)
 
 
 ##### Notes from Responsive Web Typography v2 on Front End Masters
@@ -260,7 +261,58 @@ https://medium.com/@kossnocorp/solving-the-unsolvable-svg-icons-with-react-preac
 * Don't forget to use real content.
 * Use WOFF2
 * Rather than have separate files for a typeface, it's all delivered in one file. It's only using what has deliberately been put there by the type designer. There are a small number of registered axes (like `wght`, `slnt`, `ital`, `opsz`).
-* Variant fonts are completely extensible. Some common custom axes are `GRAD`, `YTAS`, `YTDE`
+* Variant fonts are completely extensible. Some common custom axes are `GRAD`, `YTAS`, `YTDE`. Custom axes need to be in all caps.
+* Don't block page render
+* Use feature-detection (like adding `.no-js` class to body, or tools like Modernizr)
+* `@font-face` support is better than js support; tune for loading process
+* When lines are short, you don't need extra line-height
+* Fonts are not loaded with `@font-face`; it's okay to list many options here. They get loaded when referenced in CSS with `font-family` declaration.
+* The syntax for a variable font `@font-face` declaration is no different
+* Set a min and max for font-sizes on the root:
+
+```css
+
+// see Tim Brown's original formula: https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
+
+:root {
+  /* vars */
+}
+
+// min
+
+h1 {
+  font-size: calc( var(--h1-font-size-min) * 1em );
+}
+
+// everything in between
+
+@media screen and (min-width: 24.15em) {
+  h1 {
+    font-size: calc(( var(--h1-font-size-min) * 1em ) + ( var(--h1-font-size-max) - var(--h1-font-size-min)) * ((100vw - (var(--bp-small) * 1em)) / ( var(--bp-xlarge) - var(--bp-small) )));
+  }
+}
+
+
+// max
+
+@media screen and (min-width: 75em) {
+  h1 {
+    font-size: calc( var(--h1-font-size-max) * 1em )
+  }
+}
+```
+
+* Use `font-variation-settings: normal` with `@supports`
+* Use optical sizing when available
+* Use OpenType features (ligatures & swashes, fractions, kerning). Example: `font-feature-settings: "liga" 1, "kern" 1;`
+* See all the OpenType features for a font with [https://wakamaifondue.com/](https://wakamaifondue.com/)
+* Other finishing touches (initial caps, better blockquotes, multi-column layouts)
+* Create your own typography starter kit
+* Use pseudo-selectors like `first-line` and `first-letter` to style initial line and first letter, as in `p:first-of-type:first-line`
+* Discover and play with variable fonts: [https://v-fonts.com/](https://v-fonts.com/)
+
+
+
 
 #### Animation
 
